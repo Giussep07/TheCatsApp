@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.giussepr.thecatsapp.domain.model.Cat
 import com.giussepr.thecatsapp.domain.model.fold
 import com.giussepr.thecatsapp.domain.repository.CatsRepository
+import com.giussepr.thecatsapp.utils.DispatcherProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
@@ -18,13 +19,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val catsRepository: CatsRepository
+    private val catsRepository: CatsRepository,
+    private val dispatcherProvider: DispatcherProvider
 ): ViewModel() {
 
     var uiState by mutableStateOf(HomeUiState())
         private set
 
-    private fun getCats() {
+    fun getCats() {
         catsRepository.getCats().map { result ->
             result.fold(
                 onSuccess = { cats ->
@@ -42,7 +44,7 @@ class HomeViewModel @Inject constructor(
             )
         }
             .onStart { uiState = uiState.copy(isLoading = true) }
-            .flowOn(Dispatchers.IO).launchIn(viewModelScope)
+            .flowOn(dispatcherProvider.io).launchIn(viewModelScope)
     }
 
     fun onUiEvent(uiEvent: HomeUiEvent) {

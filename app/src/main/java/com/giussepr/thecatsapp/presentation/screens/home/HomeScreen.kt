@@ -22,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -73,6 +74,15 @@ fun HomeScreen(navController: NavHostController, viewModel: HomeViewModel = hilt
             if (viewModel.uiState.cats.isNotEmpty()) {
                 HomeScreenContent(
                     cats = viewModel.uiState.cats,
+                )
+            }
+
+            if (!viewModel.uiState.isLoading && viewModel.uiState.errorMessage.isNotEmpty()) {
+                Text(
+                    modifier = Modifier.padding(16.dp),
+                    text = viewModel.uiState.errorMessage,
+                    style = MaterialTheme.typography.titleLarge,
+                    color = Color.Red
                 )
             }
         }
