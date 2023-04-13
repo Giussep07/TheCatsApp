@@ -1,4 +1,4 @@
-package com.giussepr.thecatsapp.ui.theme
+package com.giussepr.thecatsapp.presentation.theme
 
 import android.app.Activity
 import android.os.Build

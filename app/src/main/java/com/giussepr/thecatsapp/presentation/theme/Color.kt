@@ -1,4 +1,4 @@
-package com.giussepr.thecatsapp.ui.theme
+package com.giussepr.thecatsapp.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.giussepr.thecatsapp.ui.theme
+package com.giussepr.thecatsapp.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
