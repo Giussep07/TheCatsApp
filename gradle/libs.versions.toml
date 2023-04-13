@@ -20,6 +20,7 @@ retrofit-converter = "2.5.0"
 androidxRoom = "2.5.0"
 mockk = "1.13.3"
 kotlinXCoroutinesTest = "1.6.1"
+composeCoil = "2.2.2"
 
 [libraries]
 # AndroidX
@@ -72,6 +73,9 @@ mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 
 # Test kotlinx-coroutines
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinXCoroutinesTest" }
+
+# Coil
+compose-coil = { module = "io.coil-kt:coil-compose", version.ref = "composeCoil" }
 
 [bundles]
 compose = [
