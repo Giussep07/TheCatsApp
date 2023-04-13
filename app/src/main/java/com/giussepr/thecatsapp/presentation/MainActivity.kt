@@ -1,4 +1,4 @@
-package com.giussepr.thecatsapp
+package com.giussepr.thecatsapp.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
